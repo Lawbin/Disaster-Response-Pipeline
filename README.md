@@ -1,48 +1,82 @@
-<<<<<<< HEAD
-# Disaster Response Pipeline Project
+![fig8](https://github.com/sousablde/Disaster-Response-Pipeline/blob/master/Images/f8logo.PNG)
 
-### Instructions:
-1. Run the following commands in the project's root directory to set up your database and model.
+# Data Science Nanodegree
+## Disaster Response Pipeline
+### A Figure 8 dataset
 
-    - To run ETL pipeline that cleans data and stores in database
-        `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
-    - To run ML pipeline that trains classifier and saves
-        `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
+### Table of Contents
+1. [Required Libraries](#libraries)
+2. [Introduction](#introduction)
+3. [Files](#files)
+4. [ETL Pipeline](#ETL)
+5. [ML Pipeline](#ML)
+6. [Flask Web App](#Flask)
+7. [Plot Demos](#demo1)
+8. [Classification Demo](#demo2)
+9. [Licensing, Authors, and Acknowledgements](#licensing)
 
-2. Run the following command in the app's directory to run your web app.
-    `python run.py`
 
-3. Go to http://0.0.0.0:3001/
-=======
-# Data Science Portfolio
-Repository containing portfolio of data science projects completed by me for academic purposes. Presented in the form of iPython Notebooks.
+## 1. Required Libraries <a name="libraries"></a>
+Besides the libraries included in the Anaconda distribution for Python 3.6 the following libraries have been included in this project:
+* `nltk` 
+* `sqlalchemy` 
 
-_Note: Data used in the projects (accessed under data directory) is for demonstration purposes only._
 
-## Contents
+## 2. Introduction <a name="introduction"></a>
+[Figure 8](https://www.figure-eight.com/) helps companies transform they data by providing human annotators and machine learning to annotate data at all scales.
+Disaster response is one of events that greatly benefits from data and machine learning modeling. In this project I propose an approach to social media messages annotation.
+NLP allows the extraction of great significance in text, understanding how a model classifies and predicts needed responses in disaster cases provides good understanding of the power of words in functional responses.
 
-- ### Machine Learning
+In this project I will be using a data set containing messages that were sent during disaster events and build a classifier to identify messages or events in need of attention or relief.
+The data cleaning and model building will be using pipelines, automating repetitive steps, and preventing data leakage.
 
-	- [Predicting US Census Income](https://github.com/Lawbin/data-science-portfolio/blob/master/US%20Census%20Income/ML%20-%20Census%20Income.ipynb):  A model to predict whether an individual makes more than or less than $50k annually. This prediction was based on demographic, education, marital status, working class, and occupation.
+The best performing machine learning model will be deployed as a web app where the user can test their own tentative messages to see how they would be classified with the models I selected and trained. 
+Through the web app the user can also consult visualizations of the clean and transformed data.
 
-	_Tools: scikit-learn, Pandas, Seaborn, Matplotlib_
 
-- ### Data Analysis and Visualisation
-	- __Python__
-	
-		- [Indeed Webscrape & Analysis](https://github.com/Lawbin/data-science-portfolio/tree/master/Indeed%20Webscrape): Analysis of data scientist jobs available in California, USA from webscraping Indeed.
-		
-	_Tools: Pandas, Seaborn and Matplotlib_
+## 3. Files <a name="files"></a>
+Data was downloaded from [Figure 8](https://www.figure-eight.com/dataset/combined-disaster-response-data/).
 
-- ### Projects: 
+#### 4. ETL Pipeline <a name="ETL"></a>
 
-	- __Python__
-		- [Movie Recommendations using Hybrid Recommender Systems](https://github.com/Lawbin/data-science-portfolio/blob/master/Movie%20Recommender/Group%20projects%203.ipynb): A project to build a hybrid recommendation system that makes movie recommendations based on movies the user has liked in the past and similarities amongst other users. To further enhance this project, the recommendation system was incorporated through a chatbot
-		
-		- [Fashion AI-Recommender](https://github.com/Lawbin/data-science-portfolio/blob/master/Fashion%20Recommender/Model%20for%20fashion-combined.ipynb): A capstone project (an assignment acting as an academic and intellectual experience) to build a fashion recommender that allows users to upload an image with clothing they wish to purchase onto the site. Next, the machine learning based recommender classifies the image based on clothing attributes. Finally, the recommender directs users to relevant famous shopping websites. I was in charge of image segmentation. [Main Project Repository](https://github.com/estherho412/Flashion)
-	
-	_Tools: Pandas, Seaborn, Matplotlib, Keras, Flask, OpenCV2_
->>>>>>> d243981f8fb6a1bac51e73ea9d9cdfc2502c7bc6
-# Disaster-Response-Pipeline
-# Disaster-Response-Pipeline
-# Disaster-Response-Pipeline
+File _data/process_data.py_ contains data cleaning pipeline that:
+
+- Loads the `messages` and `categories` dataset
+- Merges the two datasets
+- Cleans the data
+- Stores it in a **SQLite database**
+
+#### 5. ML Pipeline <a name="ML"></a>
+
+File _models/train_classifier.py_ contains machine learning pipeline that:
+
+- Loads data from the **SQLite database**
+- Splits the data into training and testing sets
+- Builds a text processing and machine learning pipeline
+- Trains and tunes a model using GridSearchCV
+- Outputs result on the test set
+- Exports the final model as a pickle file
+
+#### 6. Flask Web App <a name="Flask"></a>
+
+Run the following commands in the project's root directory to set up your database and model.
+
+To run ETL pipeline that cleans data and stores in database python:
+data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db 
+
+To run ML pipeline that trains classifier and saves python 
+models/train_classifier.py data/DisasterResponse.db models/classifier.pkl 
+
+Run the following command in the app's directory to run your web app 
+python run.py
+
+Go to http://0.0.0.0:3001/
+
+Notebooks
+ETL Pipeline Prep.ipynb - jupyter notebook for data exploration and cleaning
+ML Pipeline Preparation - jupyter notebook for model selection and evaluation
+
+
+
+## 9. Licensing, Authors, Acknowledgements<a name="licensing"></a>
+I am greatly thankful for the incredible challenge provided by Udacity.
