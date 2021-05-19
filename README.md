@@ -22,8 +22,8 @@ This Project is part of [Udacity's](https://www.udacity.com/) Data Science Nanod
 * ETL: `pandas`, `numpy`, `seaborn`, `matplotlib`, `sqlalchemy`
 * Machine Learning: ETL Libraries, `re` (regex), `scikit-learn`
 * Natural Language Processing: `nltk`
-* Model Loading and Saving: Pickle
-* Model Deployment: Flask
+* Model Loading and Saving: `Pickle`
+* Model Deployment: `Flask`
 
 #### 3. ETL Pipeline <a name="ETL"></a>
 
